@@ -1,0 +1,29 @@
+<div>
+  <mat-card class="card-login">
+    <mat-card-header>
+      <mat-card-title>Register</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form (ngSubmit)="onSubmit()" #f="ngForm">
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="email" name="email" [(ngModel)]="user.email" type="email">
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="noms" name="name" [(ngModel)]="user.name" type="text">
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="password" [(ngModel)]="user.password" name="password" type="password">
+        </mat-form-field>
+        <span class="file-info">{{file.name}}({{file.size | bytes}})</span>
+        <section class="example-section">
+          <mat-progress-bar class="example-margin" [value]="progressPercentage"></mat-progress-bar>
+          <a [ngClass]="{'disabled' : isUploading}"><mat-icon class="action" (click)="upload()">file_upload</mat-icon></a>
+          <mat-icon class="action" (click)="remove()">cancel</mat-icon>
+        </section>
+        <span class="file-info">{{progressPercentage}}%</span><span> {{loaded | bytes}} of {{total | bytes}}</span>
+        <button mat-raised-button color="primary" type="submit">enregistrer vous</button>
+      </form>
+    </mat-card-content>
+    <span>{{data}}</span>
+  </mat-card>
+</div>
